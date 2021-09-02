@@ -1,16 +1,28 @@
 import React, { useRef } from "react";
 import ReactDOM from "react-dom";
 import { makeStyles } from "@material-ui/core/styles";
-import HomeIcon from "@material-ui/icons/Home";
-import RestaurantIcon from "@material-ui/icons/Restaurant";
-import FastfoodIcon from "@material-ui/icons/Fastfood";
-import LocalPizzaIcon from "@material-ui/icons/LocalPizza";
-import ContactPhoneIcon from "@material-ui/icons/ContactPhone";
+
 import { MenuData } from "./MenuData";
+const animationOpacity = () => {
+
+  const result = {};
+
+  for (let index = 1; index < 6; index++) {
+    let seconds = 3 + index;
+    result[`&:nth-child(${index})`] = {
+
+      transition: `opacity.4s 0.${seconds}s, color 0.3s`,
+
+    };
+  }
+  console.log(result);
+  return result;
+}
 function Navbar() {
   const classes = useStyles();
   const menu = useRef(null);
   const navbar = useRef(null);
+
 
   const openMenu = () => {
     let nodeMenu = ReactDOM.findDOMNode(menu.current);
@@ -22,9 +34,9 @@ function Navbar() {
   return (
     <React.Fragment>
       <nav ref={navbar} className={classes.navbar}>
-        {MenuData.map((menuitem) => {
+        {MenuData.map((menuitem, index) => {
           return (
-            <a className={classes.navbarLink} href={menuitem.path}>
+            <a key={index} className={classes.navbarLink} href={menuitem.path}>
               <span>{menuitem.title}</span>
               {menuitem.icon}
             </a>
@@ -92,9 +104,10 @@ const useStyles = makeStyles((theme) => ({
     "& svg": {
       fontSize: "7rem",
     },
-    "&.change": {
+    ".change &": {
       opacity: 1,
     },
+    ...animationOpacity()
   },
 
   menu: {
