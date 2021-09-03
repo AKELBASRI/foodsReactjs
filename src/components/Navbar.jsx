@@ -67,22 +67,9 @@ const useStyles = makeStyles((theme) => ({
       top: 0,
       transition: "top 0.4s 0.2s",
     },
+    
   },
-  //   .change .navbar-link:nth-child(1) {
-  //     transition: opacity.4s 0.5s, color 0.3s;
-  //   }
-  //   .change .navbar-link:nth-child(2) {
-  //     transition: opacity.4s 0.6s, color 0.3s;
-  //   }
-  //   .change .navbar-link:nth-child(3) {
-  //     transition: opacity.4s 0.7s, color 0.3s;
-  //   }
-  //   .change .navbar-link:nth-child(4) {
-  //     transition: opacity.4s 0.8s, color 0.3s;
-  //   }
-  //   .change .navbar-link:nth-child(5) {
-  //     transition: opacity.4s 0.9s, color 0.3s;
-  //   }
+
   navbarLink: {
     color: "#aaa",
     margin: "0 4rem",
@@ -100,14 +87,28 @@ const useStyles = makeStyles((theme) => ({
       fontWeight: "900",
       letterSpacing: "0.5rem",
       marginTop: "0.5rem",
+      '@media (max-width:900px)': {
+      
+        fontSize: "2rem"
+      }
     },
     "& svg": {
       fontSize: "7rem",
+      '@media (max-width:900px)': {
+        fontSize: "4rem"
+      }
     },
     ".change &": {
       opacity: 1,
     },
+    '@media (max-width:900px)': {
+      margin: "2rem"
+    },
+    '@media (max-width:550px)': {
+      margin: '0 0.7rem'
+    },
     ...animationOpacity()
+  
   },
 
   menu: {
@@ -137,4 +138,5 @@ const useStyles = makeStyles((theme) => ({
       transition: "top 0.4s",
     },
   },
-}));
+}
+));

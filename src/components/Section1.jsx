@@ -23,24 +23,30 @@ function Section1() {
 
     const icons = nodeMenu.querySelectorAll("svg");
     let i = 1;
-    setInterval(() => {
-      i++;
+    
+     
+      
+      const interval = setInterval(() => {
+        i++;
       const icon = nodeMenu.querySelector("svg.change");
-      icon.classList.remove("change");
+      icon?.classList.remove("change");
       if (i > icons.length) {
-        icons[0].classList.add("change");
+        icons[0]?.classList.add("change");
         i = 1;
       } else {
-        icon.nextElementSibling.classList.add("change");
+        icon.nextElementSibling?.classList.add("change");
       }
-    }, 4000);
+      console.log(icon)
+      }, 1000);
+      return () => clearInterval(interval);
+    
   };
   const classes = useStyles();
   const coreclasses = corestyles();
   useEffect(() => {
-    setInterval(() => {
+    
       LoopIcons();
-    }, 4000);
+   
   }, []);
   return (
     <Grid
@@ -90,6 +96,10 @@ const useStyles = makeStyles((theme) => ({
       "&.change": {
         transform: "translate(-50%, -50%) scale(1)",
         transition: "transform 0.3s 0.3",
+      },
+      '@media (max-width:1000px)': {
+        fontSize:"25rem"
+        
       },
     },
   },
