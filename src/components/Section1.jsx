@@ -1,0 +1,96 @@
+import React, { useRef, useEffect } from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import ReactDOM from "react-dom";
+import {
+  FaEgg,
+  FaCheese,
+  FaStroopwafel,
+  FaHotdog,
+  FaDrumstickBite,
+  FaAppleAlt,
+  FaIceCream,
+  FaFish,
+  FaCookie,
+  FaSeedling,
+} from "react-icons/fa";
+import { Grid, Typography } from "@material-ui/core";
+import { corestyles } from "../core/styles";
+
+function Section1() {
+  const parenticons = useRef(null);
+  const LoopIcons = () => {
+    let nodeMenu = ReactDOM.findDOMNode(parenticons.current);
+
+    const icons = nodeMenu.querySelectorAll("svg");
+    let i = 1;
+    setInterval(() => {
+      i++;
+      const icon = nodeMenu.querySelector("svg.change");
+      icon.classList.remove("change");
+      if (i > icons.length) {
+        icons[0].classList.add("change");
+        i = 1;
+      } else {
+        icon.nextElementSibling.classList.add("change");
+      }
+    }, 4000);
+  };
+  const classes = useStyles();
+  const coreclasses = corestyles();
+  useEffect(() => {
+    setInterval(() => {
+      LoopIcons();
+    }, 4000);
+  }, []);
+  return (
+    <Grid
+      container
+      //   xs={12}
+      direction="column"
+      className={classes.section1}
+      alignItems="center"
+      justifyContent="space-evenly"
+    >
+      {/* <Grid className={classes.section1}> */}
+      <Typography variant="h1" className={coreclasses.sectionheading}>
+        Variety of Foods
+      </Typography>
+      <div ref={parenticons} className={classes.section1icons}>
+        <FaEgg className="change" />
+        <FaStroopwafel />
+        <FaCheese />
+        <FaHotdog />
+        <FaDrumstickBite />
+        <FaAppleAlt />
+        <FaIceCream />
+        <FaFish />
+        <FaCookie />
+        <FaSeedling />
+      </div>
+    </Grid>
+    // </Grid>
+  );
+}
+
+export default Section1;
+const useStyles = makeStyles((theme) => ({
+  section1: {
+    width: "100%",
+    height: "100vh",
+    backgroundColor: "#333",
+  },
+  section1icons: {
+    "& svg": {
+      fontSize: "35rem",
+      color: "#a79a2d",
+      position: "absolute",
+      transform: "translate(-50%, -50%) scale(0)",
+      textShadow: "0.2rem 0.2rem 0.2rem #000",
+      transition: "transform 0.3s",
+      "&.change": {
+        transform: "translate(-50%, -50%) scale(1)",
+        transition: "transform 0.3s 0.3",
+      },
+    },
+  },
+}));
