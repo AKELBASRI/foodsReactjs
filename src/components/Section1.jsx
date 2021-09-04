@@ -17,26 +17,38 @@ import { Grid, Typography } from "@material-ui/core";
 import { corestyles } from "../core/styles";
 
 function Section1() {
-  const parenticons = useRef(null);
-  const LoopIcons = () => {
+    const parenticons = useRef(null);
+    const LoopIcons = () => {
+    let i = 0;
+    const interval = setInterval(() => {
     let nodeMenu = ReactDOM.findDOMNode(parenticons.current);
-
     const icons = nodeMenu.querySelectorAll("svg");
-    let i = 1;
+    if (icons[i + 1] !== undefined) {
+      icons[i].classList.remove("change");
+      icons[i + 1].classList.add("change");
+      i++;
+    } else {
+      icons[i].classList.remove("change");
+      i = 0;
+      icons[i].classList.add("change");
+    }
+    
+    
+
     
      
       
-      const interval = setInterval(() => {
-        i++;
-      const icon = nodeMenu.querySelector("svg.change");
-      icon?.classList.remove("change");
-      if (i > icons.length) {
-        icons[0]?.classList.add("change");
-        i = 1;
-      } else {
-        icon.nextElementSibling?.classList.add("change");
-      }
-      console.log(icon)
+    
+    //     i++;
+    //   const icon = nodeMenu.querySelector("svg.change");
+    //   icon?.classList.remove("change");
+    //   if (i > icons.length) {
+    //     icons[0]?.classList.add("change");
+    //     i = 1;
+    //   } else {
+    //     icon.nextElementSibling?.classList.add("change");
+    //   }
+    //   console.log(icon)
       }, 1000);
       return () => clearInterval(interval);
     
