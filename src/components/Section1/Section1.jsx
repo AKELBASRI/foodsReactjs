@@ -1,7 +1,4 @@
 import React, { useRef, useEffect } from 'react';
-// import ReactDOM from 'react-dom';
-
-import { makeStyles } from '@material-ui/core/styles';
 import {
   FaEgg,
   FaCheese,
@@ -15,33 +12,8 @@ import {
   FaSeedling,
 } from 'react-icons/fa';
 import { Grid, Typography } from '@material-ui/core';
-import corestyles from '../core/styles';
-
-const useStyles = makeStyles(() => ({
-  section1: {
-    width: '100%',
-    height: '100vh',
-    backgroundColor: '#333',
-  },
-  section1icons: {
-    '& svg': {
-      fontSize: '35rem',
-      color: '#a79a2d',
-      position: 'absolute',
-      transform: 'translate(-50%, -50%) scale(0)',
-      textShadow: '0.2rem 0.2rem 0.2rem #000',
-      transition: 'transform 0.3s',
-      '&.change': {
-        transform: 'translate(-50%, -50%) scale(1)',
-        transition: 'transform 0.3s 0.3',
-      },
-      '@media (max-width:1000px)': {
-        fontSize: '25rem',
-
-      },
-    },
-  },
-}));
+import corestyles from '../../core/styles';
+import useStyles from './StyleSection1';
 
 function Section1() {
   const parenticons = useRef(null);
