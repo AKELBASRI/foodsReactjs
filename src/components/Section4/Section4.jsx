@@ -27,7 +27,7 @@ function Section4() {
       </form>
 
       <p className={classes.copyright}>
-        CodeAndCreate &copy; All Rights reserved
+        AKELBASRI &copy; All Rights reserved
       </p>
     </Grid>
   );
