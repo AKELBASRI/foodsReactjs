@@ -1,6 +1,7 @@
-import React, { useRef, useEffect } from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import ReactDOM from "react-dom";
+import React, { useRef, useEffect } from 'react';
+// import ReactDOM from 'react-dom';
+
+import { makeStyles } from '@material-ui/core/styles';
 import {
   FaEgg,
   FaCheese,
@@ -12,29 +13,54 @@ import {
   FaFish,
   FaCookie,
   FaSeedling,
-} from "react-icons/fa";
-import { Grid, Typography } from "@material-ui/core";
-import { corestyles } from "../core/styles";
+} from 'react-icons/fa';
+import { Grid, Typography } from '@material-ui/core';
+import corestyles from '../core/styles';
+
+const useStyles = makeStyles(() => ({
+  section1: {
+    width: '100%',
+    height: '100vh',
+    backgroundColor: '#333',
+  },
+  section1icons: {
+    '& svg': {
+      fontSize: '35rem',
+      color: '#a79a2d',
+      position: 'absolute',
+      transform: 'translate(-50%, -50%) scale(0)',
+      textShadow: '0.2rem 0.2rem 0.2rem #000',
+      transition: 'transform 0.3s',
+      '&.change': {
+        transform: 'translate(-50%, -50%) scale(1)',
+        transition: 'transform 0.3s 0.3',
+      },
+      '@media (max-width:1000px)': {
+        fontSize: '25rem',
+
+      },
+    },
+  },
+}));
 
 function Section1() {
-    const parenticons = useRef(null);
-    const LoopIcons = () => {
+  const parenticons = useRef(null);
+  const LoopIcons = () => {
     let i = 0;
     const interval = setInterval(() => {
-    let nodeMenu = ReactDOM.findDOMNode(parenticons.current);
-    const icons = nodeMenu.querySelectorAll("svg");
-    if (icons[i + 1] !== undefined) {
-      icons[i].classList.remove("change");
-      icons[i + 1].classList.add("change");
-      i++;
-    } else {
-      icons[i].classList.remove("change");
-      i = 0;
-      icons[i].classList.add("change");
-    }
-    
-      
-    
+      const nodeMenu = (parenticons.current);
+
+      const icons = nodeMenu.querySelectorAll('svg');
+      if (icons[i + 1] !== undefined) {
+        icons[i].classList.remove('change');
+        icons[i + 1].classList.add('change');
+        i += 1;
+      } else {
+        icons[i].classList.remove('change');
+        i = 0;
+        icons[i].classList.add('change');
+      }
+
     //     i++;
     //   const icon = nodeMenu.querySelector("svg.change");
     //   icon?.classList.remove("change");
@@ -45,16 +71,13 @@ function Section1() {
     //     icon.nextElementSibling?.classList.add("change");
     //   }
     //   console.log(icon)
-      }, 3000);
-      return () => clearInterval(interval);
-    
+    }, 3000);
+    return () => clearInterval(interval);
   };
   const classes = useStyles();
   const coreclasses = corestyles();
   useEffect(() => {
-    
-      LoopIcons();
-   
+    LoopIcons();
   }, []);
   return (
     <Grid
@@ -87,28 +110,3 @@ function Section1() {
 }
 
 export default Section1;
-const useStyles = makeStyles((theme) => ({
-  section1: {
-    width: "100%",
-    height: "100vh",
-    backgroundColor: "#333",
-  },
-  section1icons: {
-    "& svg": {
-      fontSize: "35rem",
-      color: "#a79a2d",
-      position: "absolute",
-      transform: "translate(-50%, -50%) scale(0)",
-      textShadow: "0.2rem 0.2rem 0.2rem #000",
-      transition: "transform 0.3s",
-      "&.change": {
-        transform: "translate(-50%, -50%) scale(1)",
-        transition: "transform 0.3s 0.3",
-      },
-      '@media (max-width:1000px)': {
-        fontSize:"25rem"
-        
-      },
-    },
-  },
-}));
