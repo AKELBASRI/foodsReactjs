@@ -33,10 +33,6 @@ function Section1() {
       icons[i].classList.add("change");
     }
     
-    
-
-    
-     
       
     
     //     i++;
@@ -49,7 +45,7 @@ function Section1() {
     //     icon.nextElementSibling?.classList.add("change");
     //   }
     //   console.log(icon)
-      }, 1000);
+      }, 3000);
       return () => clearInterval(interval);
     
   };

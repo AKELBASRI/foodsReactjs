@@ -7,8 +7,8 @@ function Section2() {
     const coreclasses = corestyles();
     const classes = useStyles();
     return (
-        <Grid container
-        //   xs={12}
+        <Grid 
+           xs={12}
         direction="column"
         className={classes.section2}
         alignItems="center"
