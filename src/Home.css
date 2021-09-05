@@ -6,7 +6,7 @@
   box-sizing: border-box;
   text-decoration: none;
   outline: none;
-  font-family: "Nunito", sans-serif;
+  font-family: "Nunito", sans-serif !important;
   font-weight: 400;
 }
 html {

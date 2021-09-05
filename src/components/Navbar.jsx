@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import ReactDOM from "react-dom";
 import { makeStyles } from "@material-ui/core/styles";
 
-import { MenuData } from "./MenuData";
+import { MenuData } from "../data/MenuData";
 const animationOpacity = () => {
 
   const result = {};
