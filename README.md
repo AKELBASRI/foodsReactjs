@@ -1,2 +1,4 @@
 # Landing Page of Food - REACT JS
-![](https://i.imgur.com/nlO9aHl.gif)
+
+
+<img src="http://i.imgur.com/nlO9aHl.gif" width="800" height="400" />
