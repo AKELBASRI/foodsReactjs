@@ -1,3 +1,3 @@
 # Landing Page of Food - REACT JS
 
-![](https://i.imgur.com/Ze7lT03.gif)
+<img src="https://i.imgur.com/Ze7lT03.gif" data-canonical-src="https://i.imgur.com/Ze7lT03.gif" width="800" height="400" />
